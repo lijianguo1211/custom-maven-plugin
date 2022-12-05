@@ -79,5 +79,44 @@ mvn xyz.lglg.plugin:custom-maven-plugin:1.0.0:help
 mvn mvn custom:help
 ```
 
+* 在项目中使用
+
+```xml
+<build>
+      <plugins>
+          <plugin>
+              <groupId>xyz.lglg.plugin</groupId>
+              <artifactId>custom-maven-plugin</artifactId>
+              <version>1.0.0</version>
+              <executions>
+                  <execution>
+                      <id>test-jay</id>
+                      <phase>clean</phase>
+                      <goals>
+                          <goal>annotation</goal>
+                          <goal>document</goal>
+                      </goals>
+                  </execution>
+                  <execution>
+                      <id>test-query</id>
+                      <phase>validate</phase>
+                      <goals>
+                          <goal>query</goal>
+                      </goals>
+                      <configuration>
+                          <host>${host}</host>
+                          <port>${port}</port>
+                          <username>${username}</username>
+                          <password>${password}</password>
+                          <database>${database}</database>
+                      </configuration>
+                  </execution>
+
+              </executions>
+          </plugin>
+      </plugins>
+</build>
+```
+
 
 
